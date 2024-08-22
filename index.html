@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Family Location Tracker</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXhzXLW2DtzLfglND3I0Goe4dASY63cGo"></script>
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 10,
+                center: {lat: 37.7749, lng: -122.4194} // 기본 위치
+            });
+
+            // 각 가족 구성원의 위치 표시 (예시)
+            var familyLocations = [
+                {lat: 37.7749, lng: -122.4194, name: 'Member 1'},
+                {lat: 37.7849, lng: -122.4094, name: 'Member 2'}
+            ];
+
+            familyLocations.forEach(function(location) {
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    title: location.name
+                });
+            });
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <h1>Family Real-Time Location Tracker</h1>
+    <div id="map" style="height: 500px; width: 100%;"></div>
+</body>
+</html>
